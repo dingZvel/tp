@@ -55,6 +55,8 @@ ClientConnect is a **desktop app for managing contacts, optimized for use via a 
    * `exit` : Exits the app.
 
    * `find friends` : Finds all contacts that has the word `friends` in either of their names, tags, or product preferences.
+   
+   * `filter priority/2` : Filters all clients that has the PREMIUM priority level
 
    * `rank name` : Ranks the contacts based on the clients' names.
 
@@ -111,7 +113,7 @@ add name/NAME phone/PHONE_NUMBER email/EMAIL address/ADDRESS [tag/TAG] [pref/pre
 
 - A client can have any number of tags (including 0).
 - When there is a preference then there should be a frequency. If not, then frequency will be 0 by default. While preference is also optional like tag.
-- Priority is another optional field which takes only one of the 3 values: 1, 2 or 3 where 3 being the highest - VIP - and 1 being the lowest - STANDARD  
+- Priority is another optional field which takes only one of the 3 values: 1, 2 or 3 where 3 being the highest priority level - VIP - and 1 being the lowest - STANDARD  
 - Phone: Only valid if they
   - Are 8 digits.
   - Start with 3, 6, 8, or 9.
@@ -168,6 +170,8 @@ Here's how it works:
     </box>
 * **Clear Tags:** To remove all tags, simply type `tag/` without any tags following it.
 * **Product Preferences:** When updating product preferences, include both `pref/` and `freq/` together. 
+* **Priority:** When priority is omitted, the priority level of client is deleted.
+
 If you only provide `pref/`, the frequency defaults to 0.
 
     <box type="tip" seamless>
@@ -432,7 +436,7 @@ Action     | Format, Examples
 **Add**    | `add name/NAME phone/PHONE_NUMBER email/EMAIL address/ADDRESS [tag/TAG] [pref/PRRODUCT_PREFERENCE] [freq/PRODUCT_FREQUENCY]…​` <br> e.g., `add name/James Ho phone/22224444 email/jamesho@example.com address/123, Clementi Rd, 1234665 tag/friend tag/colleague pref/Shampoo freq/10`
 **Clear**  | `clear`
 **Delete** | `delete INDEX`<br> e.g., `delete 3`
-**Edit**   | `edit INDEX [name/NAME] [phone/PHONE_NUMBER] [email/EMAIL] [address/ADDRESS] [tag/TAG] [pref/PRODUCT_PREFERENCE] [freq/PRODUCT_FREQUENCY]…​`<br> e.g.,`edit 2 name/James Lee email/jameslee@example.com`
+**Edit**   | `edit INDEX [name/NAME] [phone/PHONE_NUMBER] [email/EMAIL] [address/ADDRESS] [tag/TAG]… [pref/PRODUCT_PREFERENCE] [freq/PRODUCT_FREQUENCY] [priority/PRIORITY_LEVEL]​`<br> e.g.,`edit 2 name/James Lee email/jameslee@example.com`
 **Describe** | `desc 1 This is Alex :)` `desc 2`
 **Find**   | `find KEYWORD [MORE_KEYWORDS]`<br> e.g., `find James Jake`, `find friends`, `find shampoo`
 **Filter** | `filter priority/PRIORITY_LEVEL` or `filter pref/PRODUCT_PREFERENCE` <br> e.g., `filter priority/2`, `filter pref/shampoo`
