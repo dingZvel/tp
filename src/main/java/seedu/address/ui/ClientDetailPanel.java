@@ -47,10 +47,10 @@ public class ClientDetailPanel extends UiPart<Region> {
 
         if (!client.getTags().isEmpty()) {
            client.getTags().stream().sorted(Comparator.comparing(tag -> tag.tagName)).forEach(tag -> tags.getChildren()
-                   .add(new Label(tag.tagName))); 
+                    .add(new Label(tag.tagName)));
         } else {
             tagsSection.setVisible(false);
-            tagsSection.setManaged(false); 
+            tagsSection.setManaged(false);
         }
         if (client.getPriority().isPresent()) {
             priority.setText(client.getPriority()
