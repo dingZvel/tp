@@ -68,7 +68,6 @@ public class ClientCard extends UiPart<Region> {
                             .map(ProductPreference::toString).orElse("") + ": "
                             + client.getProductPreference().get().frequency));
         }
-        // Safer approach else there could be exceptions
         if (client.getPriority().isPresent()) {
             priority.getChildren().add(new Label(client.getPriority()
                     .map(priority -> priority.toString()).orElse("")));
