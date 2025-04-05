@@ -46,7 +46,7 @@ public class ClientDetailPanel extends UiPart<Region> {
         address.setText("Address: " + client.getAddress().value);
 
         if (!client.getTags().isEmpty()) {
-           client.getTags().stream().sorted(Comparator.comparing(tag -> tag.tagName)).forEach(tag -> tags.getChildren()
+            client.getTags().stream().sorted(Comparator.comparing(tag -> tag.tagName)).forEach(tag -> tags.getChildren()
                     .add(new Label(tag.tagName)));
         } else {
             tagsSection.setVisible(false);
