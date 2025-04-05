@@ -47,8 +47,6 @@ public class ClientCard extends UiPart<Region> {
     private FlowPane totalPurchase;
     @FXML
     private FlowPane priority;
-    @FXML
-    private FlowPane description;
     /**
      * Creates a {@code ClientCode} with the given {@code Client} and index to display.
      */
@@ -70,15 +68,10 @@ public class ClientCard extends UiPart<Region> {
                             .map(ProductPreference::toString).orElse("") + ": "
                             + client.getProductPreference().get().frequency));
         }
+        // Safer approach else there could be exceptions
         if (client.getPriority().isPresent()) {
             priority.getChildren().add(new Label(client.getPriority()
-                    .map(priority -> priority.toString()).get()));
+                    .map(priority -> priority.toString()).orElse("")));
         }
-
-        if (client.getDescription().isPresent()) {
-            description.getChildren().add(new Label(client.getDescription()
-                    .map(description -> description.toString()).get()));
-        }
-
     }
 }

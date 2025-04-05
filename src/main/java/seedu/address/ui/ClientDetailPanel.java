@@ -53,7 +53,7 @@ public class ClientDetailPanel extends UiPart<Region> {
             tagsSection.setManaged(false); 
         }
         if (client.getPriority().isPresent()) {
-            priority.setText("Priority: " + client.getPriority()
+            priority.setText(client.getPriority()
                     .map(Priority::toString).orElse(""));
         } else {
             prioritySection.setVisible(false);
@@ -68,7 +68,7 @@ public class ClientDetailPanel extends UiPart<Region> {
             productPreferenceSection.setManaged(false);
         }
         if (client.getDescription().map(d -> !d.toString().isEmpty()).orElse(false)) {
-            description.setText("Description: " + client.getDescription()
+            description.setText(client.getDescription()
                     .map(Description::toString).orElse(""));
         } else {
             descriptionSection.setVisible(false);
