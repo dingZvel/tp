@@ -226,31 +226,28 @@ Priorities: High (must have) - `* * *`, Medium (nice to have) - `* *`, Low (unli
 
 | Priority | As a …​                                               | I want to …​                                                             | So that I can…​                                                                |
 |----------|-------------------------------------------------------|--------------------------------------------------------------------------|--------------------------------------------------------------------------------|
-| `* * *`  | salesclient                                           | add in my clients’ contact details                                       | contact them for business purposes                                             |
-| `* * *`  | salesclient                                           | edit my clients’ contact details                                         | keep their information updated and relevant                                    |
-| `* * *`  | salesclient                                           | delete a client                                                          | get rid of contact information that I don’t need anymore                       |
-| `* * *`  | salesclient                                           | find my clients’ info quickly in a large database                        | locate contact details of clients without having to go through the entire list |
-| `* * *`  | salesclient who wants to know my customer preferences | rank my clients based on the most purchased product type                 | find out who my potential customers are for a given product                    |
-| `* * *`  | salesclient                                           | keep track on clients' frequency of purchase                             | clientalise advertisement and services                                         |
-| `* * *`  | salesclient                                           | keep track of clients' product preferences                               | promote new products to clients that are more likely to be interested in       |
+| `* * *`  | salesperson                                           | add in my clients’ contact details                                       | contact them for business purposes                                             |
+| `* * *`  | salesperson                                           | edit my clients’ contact details                                         | keep their information updated and relevant                                    |
+| `* * *`  | salesperson                                           | delete a client                                                          | get rid of contact information that I don’t need anymore                       |
+| `* * *`  | salesperson                                           | find my clients’ info quickly in a large database                        | locate contact details of clients without having to go through the entire list |
+| `* * *`  | salesperson who wants to know my customer preferences | rank my clients based on the most purchased product type                 | find out who my potential customers are for a given product                    |
+| `* * *`  | salesperson                                           | record clients' frequency of purchase                                    | personalise advertisement and services                                         |
+| `* * *`  | salesperson                                           | record clients' product preferences                                      | promote new products to clients that are more likely to be interested in       |
 | `* * *`  | new user                                              | view examples for the main features                                      | get on board with the application more easily                                  |
 | `* *`    | user                                                  | be able to expand out the client information                             | view it with a bigger window                                                   |
 | `* *`    | user                                                  | undo all my previously executed commands                                 | revert changes without having to manually type in a long command               |
 | `* *`    | user                                                  | search for clients by name, phone number, or tag                         | quickly retrieve their information without scrolling through the entire list   |
-| `* *`    | salesclient                                           | add profile pictures for my clients                                      | quickly recognize them and clientalize my interactions                         |
-| `* *`    | salesclient                                           | add social media links to client profiles                                | easily connect with them on different platforms                                |
-| `* *`    | salesclient whose clients are of different statuses   | categorize clients into different groups (e.g., VIP, Potential, Regular) | manage them more efficiently and tailor my communication                       |
-| `* *`    | salesclient whose customers come from many industries | add tags for clients                                                     | split them into categories                                                     |
-| `* *`    | salesclient                                           | filter clients by tags                                                   | quickly see all the clients inside one category                                |
+| `* *`    | salesperson                                           | add profile pictures for my clients                                      | quickly recognize them and personalize my interactions                         |
+| `* *`    | salesperson                                           | add social media links to client profiles                                | easily connect with them on different platforms                                |
+| `* *`    | salesperson whose clients are of different statuses   | categorize clients into different groups (e.g., VIP, Potential, Regular) | manage them more efficiently and tailor my communication                       |
+| `* *`    | salesperson whose customers come from many industries | add tags for clients                                                     | split them into categories                                                     |
+| `* *`    | salesperson                                           | filter clients by tags                                                   | quickly see all the clients inside one category                                |
 | `* *`    | user                                                  | be able to use the software in dark mode                                 | view the contents comfortably                                                  |
 | `*`      | user                                                  | have multiple accounts                                                   | save customer profiles for different businesses                                |
-| `*`      | salesclient who needs to report to my company         | export my client list to a CSV file                                      | share it with my team or use it for data analysis and reporting                |
-| `*`      | salesclient                                           | track the geographical location of my clients                            | plan visits efficiently                                                        |
+| `*`      | salesperson who needs to report to my company         | export my client list to a CSV file                                      | share it with my team or use it for data analysis and reporting                |
+| `*`      | salesperson                                           | track the geographical location of my clients                            | plan visits efficiently                                                        |
 | `*`      | paranoid user                                         | access my address book via an authentication system                      | my customer profiles are kept confidential                                     |
 | `*`      | user                                                  | use the software in my desired language                                  | understand how to use the software better                                      |
-
-
-
 
 
 *{More to be added}*
@@ -449,6 +446,12 @@ testers are expected to do more *exploratory* testing.
 
 </box>
 
+<box type="tip" seamless>
+
+ClientConnect will **autoload a sample address book with a few entries** to play around with ***if there isn't one being created yet***. So you may ***perform these test cases even without adding new entries***.
+
+</box>
+
 ### Launch and shutdown
 
 1. Initial launch
@@ -463,8 +466,6 @@ testers are expected to do more *exploratory* testing.
 
    1. Re-launch the app by double-clicking the jar file.<br>
        Expected: The most recent window size and location is retained.
-
-1. _{ more test cases …​ }_
 
 ### Deleting a client
 
@@ -481,15 +482,40 @@ testers are expected to do more *exploratory* testing.
    1. Other incorrect delete commands to try: `delete`, `delete x`, `...` (where x is larger than the list size)<br>
       Expected: Similar to previous.
 
-1. _{ more test cases …​ }_
+### Filtering a client's product preference or priority
 
-### Saving data
+1. Filtering a client while all clients are being shown.
+    1. Prerequisites: List all clients using the `list` command. Multiple clients in the list.
 
-1. Dealing with missing/corrupted data files
+    1. Test case: `filter pref/shampoo`
+       Expected: All clients with `shampoo` as part of their product preference are shown.
 
-   1. _{explain how to simulate a missing/corrupted file, and the expected behavior}_
+    1. Test case: `filter priority/2`
+       Expected: All clients with the `PREMIUM` priority are shown.
 
-1. _{ more test cases …​ }_
+    1. Test case: `filter name/John`
+       Expected: Error details shown in the status message.
+
+    1. Other incorrect filter command keywords to try: `filter`, `filter address/`, `...` (where keyword is invalid)
+       Expected: Similar to previous.
+
+### Ranking the clients
+
+1. Ranking with all the clients being shown.
+   1. Prerequisites: List all clients using the `list` command. Multiple clients in the list.
+
+   1. Test case: `rank name`
+      Expected: All clients are sorted based on their names in lexicographical order.
+   
+    1. Test case: `rank total`
+      Expected: All clients are sorted based on their total purchase in descending order.
+
+   1. Other correct rank command keywords to try: `rank toTal`, `rank NAME`
+      Expected: Similar to previous.
+
+   1. Test case: `rank handsomeness`
+      Expected: Current clients' order does not change. Error details shown in the status message.
+
 
 --------------------------------------------------------------------------------------------------------------------
 
