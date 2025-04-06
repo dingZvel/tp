@@ -137,21 +137,4 @@ public class JsonAdaptedClientTest {
         String expectedMessage = seedu.address.model.client.Frequency.MESSAGE_CONSTRAINTS;
         assertThrows(IllegalValueException.class, expectedMessage, client::toModelType);
     }
-
-    @Test
-    public void toModelType_invalidDescription_throwsIllegalValueException() {
-        JsonAdaptedClient client = new JsonAdaptedClient(
-                VALID_NAME,
-                VALID_PHONE,
-                VALID_EMAIL,
-                VALID_ADDRESS,
-                VALID_TAGS,
-                VALID_PRODUCT_PREFERENCE,
-                VALID_FREQUENCY,
-                INVALID_DESCRIPTION,
-                "VIP"
-        );
-        String expectedMessage = seedu.address.model.client.Description.MESSAGE_CONSTRAINTS;
-        assertThrows(IllegalValueException.class, expectedMessage, client::toModelType);
-    }
 }

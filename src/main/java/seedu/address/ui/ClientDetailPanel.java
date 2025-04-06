@@ -7,6 +7,7 @@ import javafx.scene.layout.Region;
 import javafx.scene.layout.VBox;
 import seedu.address.model.client.Client;
 import seedu.address.model.client.Description;
+import seedu.address.model.client.Priority;
 import seedu.address.model.client.ProductPreference;
 
 /**
@@ -40,7 +41,8 @@ public class ClientDetailPanel extends UiPart<Region> {
         address.setText("Address: " + client.getAddress().value);
 
         if (client.getPriority().isPresent()) {
-            priority.setText("Priority: " + client.getPriority().toString());
+            priority.setText("Priority: " + client.getPriority()
+                    .map(Priority::toString).orElse(""));
         } else {
             prioritySection.setVisible(false);
             prioritySection.setManaged(false);

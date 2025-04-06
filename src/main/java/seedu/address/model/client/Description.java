@@ -8,7 +8,8 @@ import static seedu.address.commons.util.AppUtil.checkArgument;
  * Guarantees: immutable; is valid as declared in {@link #isValidDescription(String)}
  */
 public class Description {
-    public static final String MESSAGE_CONSTRAINTS = "Description can take any values, and it should not be blank";
+    public static final String MESSAGE_CONSTRAINTS = "Description can take any values, and if the content is blank, "
+            + "the description field will be cleared.";
 
     public final String description;
 
@@ -24,7 +25,7 @@ public class Description {
     }
 
     public static boolean isValidDescription(String test) {
-        return !test.trim().isEmpty();
+        return test != null;
     }
 
     @Override

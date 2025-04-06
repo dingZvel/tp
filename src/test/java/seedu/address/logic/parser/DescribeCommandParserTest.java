@@ -39,7 +39,8 @@ public class DescribeCommandParserTest {
     public void parse_validArgsWithEmptyDescription_returnsDescribeCommand() {
         String userInput = "1";
 
-        EditCommand.EditClientDescriptor descriptor = new EditClientDescriptorBuilder().build();
+        EditCommand.EditClientDescriptor descriptor = new EditClientDescriptorBuilder()
+                .withDescription("").build();
         DescribeCommand expectedCommand = new DescribeCommand(INDEX_FIRST_PERSON, descriptor);
 
         assertParseSuccess(parser, userInput, expectedCommand);

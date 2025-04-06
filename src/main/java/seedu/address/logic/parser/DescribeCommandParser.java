@@ -43,7 +43,7 @@ public class DescribeCommandParser implements Parser<DescribeCommand> {
         Optional<String> description;
 
         if (argList.length == 1) {
-            description = Optional.empty();
+            description = Optional.of("");
         } else {
             description = Optional.of(argList[1]);
         }

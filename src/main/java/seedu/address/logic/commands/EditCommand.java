@@ -107,9 +107,14 @@ public class EditCommand extends Command {
         Optional<ProductPreference> updatedProductPreference =
                 editClientDescriptor.getProductPreference().or(() -> clientToEdit.getProductPreference());
         Optional<Description> updatedDescription =
-                editClientDescriptor.getDescription();
+                editClientDescriptor.getDescription().or(() -> clientToEdit.getDescription());
 
-        Optional<Priority> updatedPriority = editClientDescriptor.getPriority().or(() -> clientToEdit.getPriority());
+        Optional<Priority> updatedPriority;
+        if (editClientDescriptor.isPriorityEdited()) {
+            updatedPriority = editClientDescriptor.getPriority();
+        } else {
+            updatedPriority = clientToEdit.getPriority();
+        }
 
         return new Client(updatedName, updatedPhone, updatedEmail,
                 updatedAddress, updatedTags, updatedProductPreference, updatedDescription, updatedPriority);
@@ -152,6 +157,7 @@ public class EditCommand extends Command {
         private Optional<ProductPreference> productPreference = Optional.ofNullable(null);
         private Optional<Description> description = Optional.ofNullable(null);
         private Optional<Priority> priority = Optional.empty();
+        private boolean priorityEdited = false;
 
         public EditClientDescriptor() {}
 
@@ -167,7 +173,7 @@ public class EditCommand extends Command {
             setTags(toCopy.tags);
             setProductPreference(toCopy.productPreference);
             setDescription(toCopy.description);
-            setPriority(toCopy.priority);
+            setPriorityWithConstructor(toCopy.priority, toCopy.priorityEdited);
         }
 
         /**
@@ -175,7 +181,7 @@ public class EditCommand extends Command {
          */
         public boolean isAnyFieldEdited() {
             return CollectionUtil.isAnyNonNull(name, phone, email, address, tags, productPreference.orElse(null),
-                    priority.orElse(null));
+                    priority.orElse(null)) || priorityEdited;
         }
 
         public void setName(Name name) {
@@ -212,11 +218,22 @@ public class EditCommand extends Command {
 
         public void setPriority(Optional<Priority> priority) {
             this.priority = priority;
+            this.priorityEdited = true;
         }
 
         public Optional<Priority> getPriority() {
             return priority;
         }
+
+        public boolean isPriorityEdited() {
+            return priorityEdited;
+        }
+
+        public void setPriorityWithConstructor(Optional<Priority> priority, boolean priorityEdited) {
+            this.priority = priority;
+            this.priorityEdited = priorityEdited;
+        }
+
 
         /**
          * Sets {@code tags} to this object's {@code tags}.
@@ -268,7 +285,10 @@ public class EditCommand extends Command {
                     && Objects.equals(email, otherEditClientDescriptor.email)
                     && Objects.equals(address, otherEditClientDescriptor.address)
                     && Objects.equals(tags, otherEditClientDescriptor.tags)
-                    && Objects.equals(productPreference, otherEditClientDescriptor.productPreference);
+                    && Objects.equals(productPreference, otherEditClientDescriptor.productPreference)
+                    && Objects.equals(description, otherEditClientDescriptor.description)
+                    && Objects.equals(priority, otherEditClientDescriptor.priority)
+                    && Objects.equals(priorityEdited, otherEditClientDescriptor.priorityEdited);
         }
 
         @Override

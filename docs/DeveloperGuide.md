@@ -335,6 +335,84 @@ Priorities: High (must have) - `* * *`, Medium (nice to have) - `* *`, Low (unli
 * 2a: If the command input is not recognised, ClientConnect displays: “I do not understand your command, please try again.”
 * 3a: If there is no client found with <keyword>, ClientConnect displays: "No client found with <keyword>."
 
+**Use case: Describe a client**
+
+**MSS**
+
+1.  User enters command to add more description about the client.
+2.  ClientConnect validates the command.
+3.  ClientConnect updates the specified client's description.
+4.  ClientConnect displays success message with updated client details.
+
+**Extensions**
+
+* 2a. Invalid index provided:
+  * 2a1. ClientConnect shows "Invalid index" error.
+* 2b. No description provided:
+  * 2b1. ClientConnect clears existing description for the client.
+
+  **Use case: Rank clients**
+
+**MSS**
+
+1.  User enters command to rank clients based on a certain criteria.
+2.  ClientConnect validates the command.
+3.  ClientConnect sorts current client list using specified comparator.
+4.  ClientConnect displays ranked list with success message.
+
+**Extensions**
+
+* 2a. Invalid criteria provided:
+  * 2a1. ClientConnect shows "Unknown ranking criteria" error.
+
+**Use case: Expand client view**
+
+**MSS**
+
+1.  User enters command to view a specific client's details.
+2.  ClientConnect validates the command.
+3.  ClientConnect retrieves full details of specified client.
+4.  ClientConnect displays expanded view in separate window.
+
+**Extensions**
+
+* 2a. Invalid index provided:
+  * 2a1. ClientConnect shows "Invalid index" error.
+
+**Use case: Filter clients**
+
+**MSS**
+
+1.  User enters command to filter clients based on priority level or product preference.
+2.  ClientConnect validates filter parameters.
+3.  ClientConnect applies filter to current client list.
+4.  ClientConnect displays filtered results with success message.
+
+**Extensions**
+
+* 2a. Invalid priority level:
+  * 2a1. ClientConnect shows "Invalid priority level" error.
+* 2b. Unknown product preference:
+  * 2b1. ClientConnect shows "No clients found" message.
+
+**Use case: Get help**
+
+**MSS**
+
+1.  User enters does not understand how to operate the software.
+2.  User typed the command to get guidance.
+3.  ClientConnect opens help window with command summary.
+4.  User copies URL to documentation using copy button.
+
+**Use case: Exit application**
+
+**MSS**
+
+1.  User finished using the product and wished to leave.
+2.  User enters command.
+3.  ClientConnect saves all data.
+4.  ClientConnect closes all windows and terminates.
+
 ### Non-Functional Requirements
 
 1.  Should work on any _mainstream OS_ as long as it has Java `17` or above installed.

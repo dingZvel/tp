@@ -13,7 +13,7 @@ public class FilterCommand extends AbstractFilterCommand {
     public static final String COMMAND_WORD = "filter";
 
     public static final String MESSAGE_USAGE = COMMAND_WORD + ": Filters all persons based on either priority level or "
-            + "product preferencecontaining any of "
+            + "product preference containing any of "
             + "the specified keywords (case-insensitive) and displays them as a list with index numbers.\n"
             + "Parameters: KEYWORD [MORE_KEYWORDS]...\n"
             + "Example: " + COMMAND_WORD + "shampoo";

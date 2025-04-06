@@ -302,7 +302,7 @@ The INDEX must be a **positive integer**, e.g. 1, 2, 3, …​
 
 Examples:
 * After running the `list` command, typing `expand 2` will show more details for the second client.
-* If you search with `find Joe`, then typing `expand 1` will display the details for the first client in your search results.<br>
+* If you search with `find Alex`, then typing `expand 1` will display the details for the first client in your search results.<br>
 ![result for 'expand 1'](images/ExpandCommandUi.png)<br>
 
 ### Filtering clients : `filter`
