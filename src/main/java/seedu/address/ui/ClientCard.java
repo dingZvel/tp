@@ -65,7 +65,7 @@ public class ClientCard extends UiPart<Region> {
                 .sorted(Comparator.comparing(tag -> tag.tagName))
                 .forEach(tag -> tags.getChildren().add(new Label(tag.tagName)));
         totalPurchase.getChildren().add(new Label("total purchase: " + String.valueOf(client.getTotalPurchase())));
-        if (client.getProductPreference().isPresent()&& !client.getProductPreference().get().toString().isEmpty()) {
+        if (client.getProductPreference().isPresent() && !client.getProductPreference().get().toString().isEmpty()) {
             productPreferenceWithFrequency.getChildren()
                     .add(new Label(client.getProductPreference()
                             .map(ProductPreference::toString).orElse("") + ": "
