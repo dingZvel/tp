@@ -6,7 +6,8 @@
 
 # ClientConnect User Guide
 
-ClientConnect is a **desktop app for managing contacts, optimized for use via a  Line Interface** (CLI) while still having the benefits of a Graphical User Interface (GUI). If you can type fast, AB3 can get your contact management tasks done faster than traditional GUI apps.
+ClientConnect is a **desktop app for providing fast access to clients’ addresses and preferences** to help salespeople in making sales decisions and building rapports with clients, which can potentially increase their sales revenue. It is also optimized for use via a  Line Interface** (CLI) while still having the benefits of a Graphical User Interface (GUI).
+
 
 <!-- * Table of Contents -->
 <page-nav-print />
@@ -30,7 +31,7 @@ ClientConnect is a **desktop app for managing contacts, optimized for use via a 
    _(Note that by convention you should use `\` on Windows and `/` on Linux or Mac.)<br>_
    Then use the `java -jar addressbook.jar` command to run the application.<br>
    ```bash
-   java -jar ./addressbook.jar
+   java -jar ./clientconnect.jar
    ```
    A GUI similar to the below should appear in a few seconds. Note how the app contains some sample data.<br>
    ![Ui](images/Ui_v3.png)
@@ -40,17 +41,17 @@ ClientConnect is a **desktop app for managing contacts, optimized for use via a 
 
    * `list` : Lists all contacts.
 
-   * `add n/John Doe p/98765432 e/johnd@example.com a/John street, block 123, #01-01` : Adds a contact named `John Doe` to the Address Book.
+   * `add name/John Doe phone/98765432 email/johnd@example.com address/John street, block 123, #01-01 pref/Cherry Soap` : Adds a client named `John Doe` whose product preference is a `Cherry Soap` to the Address Book.
 
    * `desc 1 Sample description` : Adds a description with content `Sample description` to the 1st contact shown in the current list.
 
-   * `desc 1` : Clears the description for the 1st contact shown in the current list.
+   * `desc 1` : Clears the description for the 1st client shown in the current list.
 
    *  `expand 1` : Expand out a detailed view for the 1st contact shown in the current list.
 
-   * `delete 3` : Deletes the 3rd contact shown in the current list.
+   * `delete 3` : Deletes the 3rd client shown in the current list.
 
-   * `clear` : Deletes all contacts.
+   * `clear` : Deletes all clients.
 
    * `exit` : Exits the app.
 
@@ -104,18 +105,30 @@ help
 Let's get started with adding your very first client! To do so, all you have to type is the following command:
 
 ```
-add name/NAME phone/PHONE_NUMBER email/EMAIL address/ADDRESS [tag/TAG] [pref/preference] [freq/frequency] [priority/PRIORITY_LEVEL]
+add name/NAME phone/PHONE_NUMBER email/EMAIL address/ADDRESS [tag/TAG] [pref/PRODUCT_PREFERENCE] [freq/PRODUCT_FREQEUNCY] [priority/PRIORITY_LEVEL]
 ```
+
+<box type="tip" seamless>
+
+Remember that only attributes in ***square brackets (i.e. []) are OPTIONAL***!
+
+</box>
 
 <box type="tip" seamless>
 
 - A client can have any number of tags (including 0).
 - When there is a preference then there should be a frequency. If not, then frequency will be 0 by default. While preference is also optional like tag.
-- Priority is another optional field which takes only one of the 3 values: 1, 2 or 3 where 3 being the highest - VIP - and 1 being the lowest - STANDARD  
+- Priority is another optional field which takes only one of the 3 values: 1, 2 or 3 where ***3 - VIP, 2 - PREMIUM, 1 - STANDARD***.  
 - Phone: Only valid if they
   - Are 8 digits.
   - Start with 3, 6, 8, or 9.
   - Do not have 9 as their first and second digits.
+  - Example: `91203625`
+  <box type="definition" seamless>
+  
+  We define phone numbers this way to ensure data consistency and validation simplicity, the app currently restricts input to ***local Singaporean phone numbers only***. We are working on expanding support for international formats in future versions.
+
+  </box>
 - Name: Only case-sensitive alphabets (a-z) and one space between each word. Note that each first letter of your name will be converted into upper-case. 
 - Address: Any input is ok (if only alphabet and number, then user can not input “#”)  
 </box>
@@ -123,6 +136,16 @@ add name/NAME phone/PHONE_NUMBER email/EMAIL address/ADDRESS [tag/TAG] [pref/pre
 <box type="important" seamless>
 
 **IMPORTANT!** Keep in mind that any feature that includes adding and/ or modifying a client's details will have these constraints applied!
+
+</box>
+
+<box type="info" seamless>
+
+You will not be able to add clients if there is already a client with the same:
+- Name
+- Phone number
+- Email
+- Address
 
 </box>
 
@@ -149,7 +172,7 @@ email, address, tags, and product preferences!<br>
 Just follow this format:<br>
 
 ```
-edit INDEX [name/NAME] [phone/PHONE] [email/EMAIL] [address/ADDRESS] [tag/TAG]… [pref/PRODUCT PREFERENCE] [freq/PRODUCT FREQUENCY] [][priority/PRIORITY_LEVEL]​`
+edit INDEX [name/NAME] [phone/PHONE_NUMBER] [email/EMAIL] [address/ADDRESS] [tag/TAG]… [pref/PRODUCT_PREFERENCE] [freq/PRODUCT_FREQUENCY] [priority/PRIORITY_LEVEL]​`
 ```
 
 Here's how it works:
@@ -394,13 +417,20 @@ AddressBook data are saved in the hard disk automatically after any command that
 
 ### Editing the data file
 
-AddressBook data are saved automatically as a JSON file `[JAR file location]/data/addressbook.json`. Advanced users are welcome to update data directly by editing that data file.
+ClientConnect data are saved automatically as a JSON file `[JAR file location]/data/addressbook.json`. Advanced users are welcome to update data directly by editing that data file.
+
+<box type="info" seamless>
+
+**Note:**
+If you are launching ClientConnect ***for the first time***, a **sample address book with a few entries** will be autoloaded for you. The JSON file under `data/addressbook.json` will **only be created when you make modifications** to the autoloaded entries via the application.
+
+</box>
 
 <box type="warning" seamless>
 
 **Caution:**
-If your changes to the data file makes its format invalid, AddressBook will discard all data and start with an empty data file at the next run.  Hence, it is recommended to take a backup of the file before editing it.<br>
-Furthermore, certain edits can cause the AddressBook to behave in unexpected ways (e.g., if a value entered is outside the acceptable range). Therefore, edit the data file only if you are confident that you can update it correctly.
+If your changes to the data file makes its format invalid, ClientConnect will discard all data and start with an empty data file at the next run.  Hence, it is recommended to take a backup of the file before editing it.<br>
+Furthermore, certain edits can cause the ClientConnect to behave in unexpected ways (e.g., if a value entered is outside the acceptable range). Therefore, edit the data file only if you are confident that you can update it correctly.
 
 </box>
 
@@ -429,7 +459,7 @@ _Stay tuned!_
 
 Action     | Format, Examples
 -----------|----------------------------------------------------------------------------------------------------------------------------------------------------------------------
-**Add**    | `add name/NAME phone/PHONE_NUMBER email/EMAIL address/ADDRESS [tag/TAG] [pref/PRRODUCT_PREFERENCE] [freq/PRODUCT_FREQUENCY]…​` <br> e.g., `add name/James Ho phone/22224444 email/jamesho@example.com address/123, Clementi Rd, 1234665 tag/friend tag/colleague pref/Shampoo freq/10`
+**Add**    | `add name/NAME phone/PHONE_NUMBER email/EMAIL address/ADDRESS [tag/TAG] [pref/PRODUCT_PREFERENCE] [freq/PRODUCT_FREQUENCY]…​` <br> e.g., `add name/James Ho phone/93224444 email/jamesho@example.com address/123, Clementi Rd, 1234665 tag/friend tag/colleague pref/Shampoo freq/10`
 **Clear**  | `clear`
 **Delete** | `delete INDEX`<br> e.g., `delete 3`
 **Edit**   | `edit INDEX [name/NAME] [phone/PHONE_NUMBER] [email/EMAIL] [address/ADDRESS] [tag/TAG] [pref/PRODUCT_PREFERENCE] [freq/PRODUCT_FREQUENCY]…​`<br> e.g.,`edit 2 name/James Lee email/jameslee@example.com`
