@@ -85,7 +85,7 @@ Before we get started with all the wonderful features, let's get a hang of what 
 * **email**: Allows any type of email as long as:
   - The local-part contains only alphanumeric characters and these special characters, excluding the parentheses (+_.-).
   - Followed by a '@'.
-  - Ends with a domain name that contains at least one dot (.), where there is at least one character and after the dot.
+  - Ends with a domain name that contains at least one dot (.), where there is at least one character before and after the dot.
 * **address**: Accepts any string of alphanumeric characters and any special symbols.
 
 ***OPTIONAL:***
