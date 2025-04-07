@@ -129,7 +129,8 @@ Remember that only attributes in ***square brackets (i.e. []) are OPTIONAL***!
   We define phone numbers this way to ensure data consistency and validation simplicity, the app currently restricts input to ***local Singaporean phone numbers only***. We are working on expanding support for international formats in future versions.
 
   </box>
-- Name: Only case-sensitive alphabets (a-z) and one space between each word. Note that each first letter of your name will be converted into upper-case. 
+- Name: Only case-sensitive alphabets (a-z) and one space between each word. Note that each first letter of your name will be converted into upper-case. The length of the name should keep smaller than 40 characters.
+
 - Address: Any input is ok (if only alphabet and number, then user can not input “#”)  
 </box>
 
