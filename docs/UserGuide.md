@@ -67,8 +67,9 @@ ClientConnect is a **desktop app for providing fast access to clients’ address
 ## Client's Details
 
 Before we get started with all the wonderful features, let's get a hang of what ClientConnect can help you manage. Our ClientConnect requires 4 **required** identifier fields which are **name**, **phone**, **email** and **address** while having the flexibility of having other **optional** fields: **tags**, **product preference** and its **purchase frequency**, **priority level** and **description**. <br>
+
 ***REQUIRED:***
-* **name**: Only case-sensitive alphabets (a-z) and one space between each word. Note that each first letter of your name will be automatically converted into upper-case. 
+* **name**: Only case-sensitive alphabets (a-z) and one space between each word. Note that each first letter of your name will be automatically converted into upper-case. Length is limited to 40 characters.
 * **phone**: Only valid if they
   - Are 8 digits.
   - Start with 3, 6, 8, or 9.
@@ -142,7 +143,7 @@ Let's get started with adding your very first client! To do so, all you have to 
 ```
 add name/NAME phone/PHONE_NUMBER email/EMAIL address/ADDRESS [tag/TAG]… [pref/PRODUCT_PREFERENCE] [freq/PRODUCT_FREQUENCY] [priority/PRIORITY_LEVEL]
 ```
-The following provides rules applied to details of a client for your convenience. However, for more comphrehensive rules, please refer to [Client's Details](#clients-details).
+The following provides rules applied to details of a client for your convenience. However, for more comphrehensive version, please refer to [Client's Details](#clients-details).
 <box type="tip" seamless>
 
 Remember that only attributes in ***square brackets (i.e. []) are OPTIONAL***! This means a client can only be added if their **name**, **phone**, **email** and **address** are all available.
@@ -164,7 +165,8 @@ Remember that only attributes in ***square brackets (i.e. []) are OPTIONAL***! T
   We define phone numbers this way to ensure data consistency and validation simplicity, the app currently restricts input to ***local Singaporean phone numbers only***. We are working on expanding support for international formats in future versions.
 
   </box>
-- Name: Only case-sensitive alphabets (a-z) and one space between each word. Note that each first letter of your name will be automatically converted into upper-case. 
+- Name: Only case-sensitive alphabets (a-z) and one space between each word. Note that each first letter of your name will be automatically converted into upper-case. The length of the name should keep smaller than 40 characters.
+
 - Address: Any input is ok (if only alphabet and number, then user can not input “#”)  
 </box>
 
