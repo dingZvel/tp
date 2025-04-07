@@ -20,6 +20,7 @@ public class Messages {
     public static final String MESSAGE_INVALID_PERSON_DISPLAYED_INDEX = "The client index provided is "
             + "positive but out of range";
     public static final String MESSAGE_PERSONS_LISTED_OVERVIEW = "%1$d clients listed!";
+    public static final String MESSAGE_PERSONS_RANKED = "%1$d clients ranked!";
     public static final String MESSAGE_DUPLICATE_FIELDS =
                 "Multiple values specified for the following single-valued field(s): ";
     public static final String MESSAGE_UNKNOWN_COMPARATOR_KEYWORD = "Please provide a valid keyword for entry ranking";

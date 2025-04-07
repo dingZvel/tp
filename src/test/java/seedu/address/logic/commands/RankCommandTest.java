@@ -4,6 +4,7 @@ import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertFalse;
 import static org.junit.jupiter.api.Assertions.assertTrue;
 import static seedu.address.logic.Messages.MESSAGE_PERSONS_LISTED_OVERVIEW;
+import static seedu.address.logic.Messages.MESSAGE_PERSONS_RANKED;
 import static seedu.address.logic.commands.CommandTestUtil.assertCommandSuccess;
 import static seedu.address.logic.commands.FindCommandTest.preparePredicate;
 import static seedu.address.testutil.TypicalClients.ALICE;
@@ -61,7 +62,7 @@ public class RankCommandTest {
 
     @Test
     public void execute_nonFiltered_success() {
-        String expectedMessage = String.format(MESSAGE_PERSONS_LISTED_OVERVIEW, 7);
+        String expectedMessage = String.format(MESSAGE_PERSONS_RANKED, 7);
         Comparator<Client> comparator = new TotalPurchaseComparator();
         RankCommand command = new RankCommand(comparator);
         expectedModel.sortFilteredClientList(comparator);
@@ -71,7 +72,7 @@ public class RankCommandTest {
 
     @Test
     public void execute_filtered_success() {
-        String expectedMessage = String.format(MESSAGE_PERSONS_LISTED_OVERVIEW, 2);
+        String expectedMessage = String.format(MESSAGE_PERSONS_RANKED, 2);
         Comparator<Client> comparator = new TotalPurchaseComparator();;
         RankCommand command = new RankCommand(comparator);
 
@@ -82,7 +83,7 @@ public class RankCommandTest {
         assertCommandSuccess(command, model, expectedMessage, expectedModel);
         assertEquals(Arrays.asList(FIONA, CARL), model.getSortedFilteredClientList());
 
-        expectedMessage = String.format(MESSAGE_PERSONS_LISTED_OVERVIEW, 3);
+        expectedMessage = String.format(MESSAGE_PERSONS_RANKED, 3);
         predicate = preparePredicate("Kurz Elle Kunz");
         model.updateFilteredClientList(predicate);
         expectedModel.updateFilteredClientList(predicate);
@@ -90,7 +91,7 @@ public class RankCommandTest {
         assertCommandSuccess(command, model, expectedMessage, expectedModel);
         assertEquals(Arrays.asList(FIONA, ELLE, CARL), model.getSortedFilteredClientList());
 
-        expectedMessage = String.format(MESSAGE_PERSONS_LISTED_OVERVIEW, 3);
+        expectedMessage = String.format(MESSAGE_PERSONS_RANKED, 3);
         predicate = preparePredicate("coffee book");
         model.updateFilteredClientList(predicate);
         expectedModel.updateFilteredClientList(predicate);
@@ -98,7 +99,7 @@ public class RankCommandTest {
         assertCommandSuccess(command, model, expectedMessage, expectedModel);
         assertEquals(Arrays.asList(FIONA, CARL, DANIEL), model.getSortedFilteredClientList());
 
-        expectedMessage = String.format(MESSAGE_PERSONS_LISTED_OVERVIEW, 5);
+        expectedMessage = String.format(MESSAGE_PERSONS_RANKED, 5);
         predicate = preparePredicate("cup friends");
         model.updateFilteredClientList(predicate);
         expectedModel.updateFilteredClientList(predicate);
@@ -106,7 +107,7 @@ public class RankCommandTest {
         assertCommandSuccess(command, model, expectedMessage, expectedModel);
         assertEquals(Arrays.asList(ALICE, BENSON, FIONA, ELLE, DANIEL), model.getSortedFilteredClientList());
 
-        expectedMessage = String.format(MESSAGE_PERSONS_LISTED_OVERVIEW, 4);
+        expectedMessage = String.format(MESSAGE_PERSONS_RANKED, 4);
         predicate = preparePredicate("fiona shampoo bag");
         model.updateFilteredClientList(predicate);
         expectedModel.updateFilteredClientList(predicate);
