@@ -75,15 +75,17 @@ Before we get started with all the wonderful features, let's get a hang of what 
   - Start with 3, 6, 8, or 9.
   - Do not have 9 as their first and second digits.
   - Example: `91203625`
+  
   <box type="definition" seamless>
   
   We define phone numbers this way to ensure data consistency and validation simplicity, the app currently restricts input to ***local Singaporean phone numbers only***. We are working on expanding support for international formats in future versions.
 
   </box>
+  
 * **email**: Allows any type of email as long as:
   - The local-part contains only alphanumeric characters and these special characters, excluding the parentheses (+_.-).
   - Followed by a '@'.
-  - Ends with a domain name that contains at least one dot (.), where there is at least one character and after the dot.
+  - Ends with a domain name that contains at least one dot (.), where there is at least one character before and after the dot.
 * **address**: Accepts any string of alphanumeric characters and any special symbols.
 
 ***OPTIONAL:***
@@ -94,9 +96,11 @@ Before we get started with all the wonderful features, let's get a hang of what 
 * **description**: Accepts description of any length which can include any English characters and symbols.
 
 <box type="important" seamless>
-* We explicitly allows duplicated **phone** and **email** between multiple users since we believe that clients can share the same company's phone and email.
+
+* We explicitly allow duplicated **phone** and **email** between multiple users since we believe that clients can share the same company's phone and email.
 * In the rare occasions, only clients who have the exact same **name**, **phone** and **email** are regarded as duplicated and are not allowed in ClientConnect.
 * To protect our valued users from accidentally deleting the crucial **product preference** of their clients with no way of recovering it, we intentionally disable the ability to delete a **product preference**. However, we provide a way to edit it instead. We are sure that the most purchased product of your client can only change from one product to another, and should not disappear.
+
 </box>
 
 ## Features
@@ -109,7 +113,7 @@ Before we get started with all the wonderful features, let's get a hang of what 
   e.g. in `add name/NAME`, `NAME` is a parameter which can be used as `add name/John Doe`.
 
 * Items in square brackets are optional.<br>
-  e.g `name/NAME [tag/TAG]` can be used as `name/John Doe tag/friend` or as `name/John Doe`.
+  e.g. `name/NAME [tag/TAG]` can be used as `name/John Doe tag/friend` or as `name/John Doe`.
 
 * Items with `…`​ after them can be used multiple times including zero times.<br>
   e.g. `[tag/TAG]…​` can be used as ` ` (i.e. 0 times), `tag/friend`, `tag/friend tag/family` etc.
@@ -143,7 +147,7 @@ Let's get started with adding your very first client! To do so, all you have to 
 ```
 add name/NAME phone/PHONE_NUMBER email/EMAIL address/ADDRESS [tag/TAG]… [pref/PRODUCT_PREFERENCE] [freq/PRODUCT_FREQUENCY] [priority/PRIORITY_LEVEL]
 ```
-The following provides rules applied to details of a client for your convenience. However, for more comphrehensive version, please refer to [Client's Details](#clients-details).
+The following provides rules applied to details of a client for your convenience. However, for more comprehensive version, please refer to [Client's Details](#clients-details).
 <box type="tip" seamless>
 
 Remember that only attributes in ***square brackets (i.e. []) are OPTIONAL***! This means a client can only be added if their **name**, **phone**, **email** and **address** are all available.
@@ -364,7 +368,7 @@ Examples:
 
 ### Filtering clients : `filter`
 
-Now that you know exactly what and where to search for, the `filter` command is there for you. Different from the `find` command, `filter` command only allows you to search for key words when you know exactly what the detail category is. You can filter by either **Priority Level** or **Product Preference**.
+Now that you know exactly what and where to search for, the `filter` command is there for you. Different from the `find` command, `filter` command only allows you to search for keywords when you know exactly what the detail category is. You can filter by either **Priority Level** or **Product Preference**.
 
 **Format:**
 
@@ -419,7 +423,7 @@ Examples:
   ![result for 'list' then 'rank total'](images/listThenRankTotalResult.png)
 
 * `filter pref/shampoo` followed by `rank name` ranks all clients that are found by the `filter` command by their names in alphabetical order.<br>
-  ![result for 'filter pref/shampoo' then 'rank name'](images/findShampooThenRankName.png)
+  ![result for 'filter pref/shampoo' then 'rank name'](images/filterShampooThenRankName.png)
 
 
 ### Clearing all entries : `clear`
