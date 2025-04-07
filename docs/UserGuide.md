@@ -388,7 +388,7 @@ Examples:
   ![result for 'list' then 'rank total'](images/listThenRankTotalResult.png)
 
 * `find shampoo` followed by `rank name` ranks all clients that are found by the `find` command by their names in lexicographical order.<br>
-  ![result for 'find shampoo' then 'rank name'](images/findShampooThenRankName.png)
+  ![result for 'find shampoo' then 'rank name'](images/filterShampooThenRankName.png)
 
 
 ### Clearing all entries : `clear`
