@@ -10,13 +10,14 @@ import static seedu.address.commons.util.AppUtil.checkArgument;
 public class Name {
 
     public static final String MESSAGE_CONSTRAINTS =
-            "Please use only case-sensitive words and one space between each word, e.g. “John Doe”";
+            "Please use only case-sensitive words and one space "
+                    + "between each word with length below 40 characters, e.g. “John Doe”";
 
     /*
      * The first character of the address must not be a whitespace,
      * otherwise " " (a blank string) becomes a valid input.
      */
-    public static final String VALIDATION_REGEX = "^[a-zA-Z0-9]+( [a-zA-Z0-9]+)*$";
+    public static final String VALIDATION_REGEX = "^(?=.{1,40}$)[a-zA-Z]+( [a-zA-Z]+)*$";
 
     public final String fullName;
 
