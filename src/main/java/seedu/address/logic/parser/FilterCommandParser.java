@@ -25,7 +25,9 @@ public class FilterCommandParser implements Parser<FilterCommand> {
                 ArgumentTokenizer.tokenize(args, PREFIX_PREFERENCE, PREFIX_PRIORITY);
 
         argMultimap.verifyNoDuplicatePrefixesFor(PREFIX_PREFERENCE, PREFIX_PRIORITY);
-
+        if (argMultimap.getSize() != 2) {
+            throw new ParseException(String.format(MESSAGE_INVALID_COMMAND_FORMAT, FilterCommand.MESSAGE_USAGE));
+        }
 
         boolean isPriorityFilterPresent = isArgumentPresent(argMultimap.getValue(PREFIX_PRIORITY));
         boolean isPreferenceFilterPresent = isArgumentPresent(argMultimap.getValue(PREFIX_PREFERENCE));
