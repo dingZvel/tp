@@ -83,7 +83,7 @@ Before we get started with all the wonderful features, let's get a hang of what 
 * **email**: Allows any type of email as long as:
   - The local-part contains only alphanumeric characters and these special characters, excluding the parentheses (+_.-).
   - Followed by a '@'.
-  - Ends with a domain name that is at least 2-character long with a dot (.) in between
+  - Ends with a domain name that contains at least one dot (.), where there is at least one character and after the dot.
 * **address**: Accepts any string of alphanumeric characters and any special symbols.
 
 ***OPTIONAL:***
@@ -94,9 +94,9 @@ Before we get started with all the wonderful features, let's get a hang of what 
 * **description**: Accepts description of any length which can include any English characters and symbols.
 
 <box type="important" seamless>
-* We explicitly allows duplicated **phone** and **email** between multiple users since we are sure that you don't want to lose clients just because they share the same **phone** or **email** as their closed ones.
+* We explicitly allows duplicated **phone** and **email** between multiple users since we believe that clients can share the same company's phone and email.
 * In the rare occasions, only clients who have the exact same **name**, **phone** and **email** are regarded as duplicated and are not allowed in ClientConnect.
-* To protect our valued users from accidentally deleting the crucial **product preference** of their clients with no way of recovering it, we intentionally disable the ability to delete a **product preference**. However, we provide a way to edit it instead. We are sure that the most purchased product of your client can only change from one product to another, and should not magically disappear. Right?
+* To protect our valued users from accidentally deleting the crucial **product preference** of their clients with no way of recovering it, we intentionally disable the ability to delete a **product preference**. However, we provide a way to edit it instead. We are sure that the most purchased product of your client can only change from one product to another, and should not disappear.
 </box>
 
 ## Features
@@ -406,7 +406,7 @@ rank KEYWORD
 Take note that the `KEYWORD` must be one of the defined keywords.<br>
 Some examples of `KEYWORD`:
   * `total` to rank by the clients' total purchase in descending order.
-  * `name` to rank by the clients' names in lexicographic order (i.e. ascending order alphabetically and numerically).
+  * `name` to rank by the clients' names in alphabetical order (i.e. ascending order alphabetically).
 
 </box>
 
@@ -418,8 +418,8 @@ Examples:
 * `list` (automatically ranks by name) followed by `rank total` ranks all clients by their total purchase.<br>
   ![result for 'list' then 'rank total'](images/listThenRankTotalResult.png)
 
-* `find shampoo` followed by `rank name` ranks all clients that are found by the `find` command by their names in lexicographical order.<br>
-  ![result for 'find shampoo' then 'rank name'](images/findShampooThenRankName.png)
+* `filter pref/shampoo` followed by `rank name` ranks all clients that are found by the `filter` command by their names in alphabetical order.<br>
+  ![result for 'filter pref/shampoo' then 'rank name'](images/findShampooThenRankName.png)
 
 
 ### Clearing all entries : `clear`
