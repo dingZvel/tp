@@ -16,13 +16,13 @@ public class FilterCommand extends AbstractFilterCommand {
             + "product preference containing any of "
             + "the specified keywords (case-insensitive) and displays them as a list with index numbers.\n"
             + "Parameters: KEYWORD [MORE_KEYWORDS]...\n"
-            + "Example: " + COMMAND_WORD + "shampoo";
+            + "Example: " + COMMAND_WORD + "pref/shampoo" + COMMAND_WORD + " priority/3";
 
 
     public static final String MESSAGE_ONLY_ONE_FILTER_ALLOWED = "Filter command takes exactly one "
             + "filter condition of either product preference or priority and the arguments must not be empty! \n"
             + COMMAND_WORD + " pref/PRODUCT or priority/LEVEL\n"
-            + "Example: " + COMMAND_WORD + " pref/shampoo or " + COMMAND_WORD + " priority/3";
+            + "Example: " + COMMAND_WORD + " pref/coffee or " + COMMAND_WORD + " priority/3";
 
 
 
