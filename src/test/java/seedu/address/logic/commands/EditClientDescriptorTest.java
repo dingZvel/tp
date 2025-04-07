@@ -59,7 +59,6 @@ public class EditClientDescriptorTest {
     }
 
     @Test
-    @Disabled
     public void toStringMethod() {
         EditClientDescriptor editClientDescriptor = new EditClientDescriptor();
         String expected = EditClientDescriptor.class.getCanonicalName() + "{name="
@@ -69,7 +68,8 @@ public class EditClientDescriptorTest {
                 + editClientDescriptor.getAddress().orElse(null) + ", tags="
                 + editClientDescriptor.getTags().orElse(null) + ", productPreference="
                 + editClientDescriptor.getProductPreference().orElse(null) + ", description="
-                + editClientDescriptor.getDescription().orElse(null) + "}";
+                + editClientDescriptor.getDescription().orElse(null) + ", priority="
+                + editClientDescriptor.getPriority().orElse(null) + "}";
         assertEquals(expected, editClientDescriptor.toString());
     }
 }

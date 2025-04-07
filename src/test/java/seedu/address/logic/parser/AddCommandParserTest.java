@@ -50,9 +50,10 @@ public class AddCommandParserTest {
     private AddCommandParser parser = new AddCommandParser();
 
     @Test
-    @Disabled
     public void parse_allFieldsPresent_success() {
-        Client expectedClient = new ClientBuilder(BOB).withTags(VALID_TAG_FRIEND).build();
+        Client expectedClient = new ClientBuilder(BOB).withEmptyDescription().withEmptyPriority()
+                .withTotalPurchase(0).withEmptyProductPreference().withTags(VALID_TAG_FRIEND)
+                .build();
 
         // whitespace only preamble
         assertParseSuccess(parser, PREAMBLE_WHITESPACE + NAME_DESC_BOB + PHONE_DESC_BOB + EMAIL_DESC_BOB
@@ -61,7 +62,7 @@ public class AddCommandParserTest {
 
         // multiple tags - all accepted
         Client expectedClientMultipleTags = new ClientBuilder(BOB).withTags(VALID_TAG_FRIEND, VALID_TAG_HUSBAND)
-                .build();
+                .withEmptyDescription().withEmptyPriority().withEmptyProductPreference().build();
         assertParseSuccess(parser,
                 NAME_DESC_BOB + PHONE_DESC_BOB + EMAIL_DESC_BOB + ADDRESS_DESC_BOB + TAG_DESC_HUSBAND + TAG_DESC_FRIEND,
                 new AddCommand(expectedClientMultipleTags));
@@ -132,10 +133,10 @@ public class AddCommandParserTest {
     }
 
     @Test
-    @Disabled
     public void parse_optionalFieldsMissing_success() {
         // zero tags
-        Client expectedClient = new ClientBuilder(AMY).withTags().build();
+        Client expectedClient = new ClientBuilder(AMY).withTags()
+                .withEmptyProductPreference().withEmptyPriority().withEmptyDescription().build();
         assertParseSuccess(parser, NAME_DESC_AMY + PHONE_DESC_AMY + EMAIL_DESC_AMY + ADDRESS_DESC_AMY,
                 new AddCommand(expectedClient));
     }

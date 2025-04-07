@@ -35,9 +35,8 @@ public class AddressBookParserTest {
     private final AddressBookParser parser = new AddressBookParser();
 
     @Test
-    @Disabled
     public void parseCommand_add() throws Exception {
-        Client client = new ClientBuilder().build();
+        Client client = new ClientBuilder().withEmptyDescription().build();
         AddCommand command = (AddCommand) parser.parseCommand(ClientUtil.getAddCommand(client));
         assertEquals(new AddCommand(client), command);
     }
@@ -57,7 +56,7 @@ public class AddressBookParserTest {
 
     @Test
     public void parseCommand_edit() throws Exception {
-        Client client = new ClientBuilder().build();
+        Client client = new ClientBuilder().withEmptyDescription().build();
         EditClientDescriptor descriptor = new EditClientDescriptorBuilder(client).build();
         EditCommand command = (EditCommand) parser.parseCommand(EditCommand.COMMAND_WORD + " "
                 + INDEX_FIRST_PERSON.getOneBased() + " " + ClientUtil.getEditClientDescriptorDetails(descriptor));
