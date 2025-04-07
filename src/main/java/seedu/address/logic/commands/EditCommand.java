@@ -55,7 +55,8 @@ public class EditCommand extends Command {
             + PREFIX_PHONE + "91234567 "
             + PREFIX_EMAIL + "johndoe@example.com";
 
-    public static final String MESSAGE_FREQUENCY_NOT_ALLOWED = "Frequency is not allowed as an alone parameter.";
+    public static final String MESSAGE_FREQUENCY_NOT_ALLOWED_ALONE = "Frequency is not allowed as an alone parameter.\n"
+            + "Please include the product preference you would like to edit the frequency of.";
     public static final String MESSAGE_EDIT_PERSON_SUCCESS = "Edited Client: %1$s";
     public static final String MESSAGE_NOT_EDITED = "At least one field to edit must be provided.";
     public static final String MESSAGE_DUPLICATE_PERSON = "This client already exists in the address book.";

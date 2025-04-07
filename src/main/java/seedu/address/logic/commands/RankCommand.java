@@ -32,7 +32,7 @@ public class RankCommand extends Command {
         requireNonNull(model);
         model.sortFilteredClientList(comparator);
         return new CommandResult(
-                String.format(Messages.MESSAGE_PERSONS_LISTED_OVERVIEW, model.getSortedFilteredClientList().size()));
+                String.format(Messages.MESSAGE_PERSONS_RANKED, model.getSortedFilteredClientList().size()));
     }
 
     @Override

@@ -106,8 +106,7 @@ public class Client {
         return otherClient != null
                 && otherClient.getName().equals(getName())
                 && otherClient.getPhone().equals(getPhone())
-                && otherClient.getEmail().equals(getEmail())
-                && otherClient.getAddress().equals(getAddress());
+                && otherClient.getEmail().equals(getEmail());
     }
 
     /**

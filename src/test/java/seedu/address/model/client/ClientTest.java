@@ -192,12 +192,6 @@ public class ClientTest {
     }
 
     @Test
-    void isSameClientDifferentAddressReturnsFalse() {
-        Client editedAlice = new ClientBuilder(ALICE).withAddress(VALID_ADDRESS_BOB).build();
-        assertFalse(ALICE.isSameClient(editedAlice));
-    }
-
-    @Test
     void isSameClientSameNamePhoneEmailAddressReturnsTrue() {
         Client editedAlice = new ClientBuilder(ALICE).withTags(VALID_TAG_HUSBAND).build();
         assertTrue(ALICE.isSameClient(editedAlice));
