@@ -49,6 +49,7 @@ public class ClientCard extends UiPart<Region> {
     private FlowPane priority;
     @FXML
     private FlowPane description;
+
     /**
      * Creates a {@code ClientCode} with the given {@code Client} and index to display.
      */
@@ -64,21 +65,27 @@ public class ClientCard extends UiPart<Region> {
                 .sorted(Comparator.comparing(tag -> tag.tagName))
                 .forEach(tag -> tags.getChildren().add(new Label(tag.tagName)));
         totalPurchase.getChildren().add(new Label("total purchase: " + String.valueOf(client.getTotalPurchase())));
-        if (client.getProductPreference().isPresent()) {
+        if (client.getProductPreference().isPresent() && !client.getProductPreference().get().toString().isEmpty()) {
             productPreferenceWithFrequency.getChildren()
                     .add(new Label(client.getProductPreference()
                             .map(ProductPreference::toString).orElse("") + ": "
                             + client.getProductPreference().get().frequency));
+        } else {
+            productPreferenceWithFrequency.setVisible(false);
         }
-        if (client.getPriority().isPresent()) {
+
+        if (client.getPriority().isPresent() && !client.getPriority().get().toString().isEmpty()) {
             priority.getChildren().add(new Label(client.getPriority()
-                    .map(priority -> priority.toString()).get()));
+                    .map(priority -> priority.toString()).orElse("")));
+        } else {
+            priority.setVisible(false);
         }
 
-        if (client.getDescription().isPresent()) {
+        if (client.getDescription().isPresent() && !client.getDescription().get().toString().isEmpty()) {
             description.getChildren().add(new Label(client.getDescription()
-                    .map(description -> description.toString()).get()));
+                    .map(description -> description.toString()).orElse("")));
+        } else {
+            description.setVisible(false);
         }
-
     }
 }
