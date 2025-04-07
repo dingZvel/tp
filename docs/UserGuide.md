@@ -475,6 +475,36 @@ _Stay tuned!_
 
 ## FAQ
 
+**Q**: Where's my sample data after first launch?<br>
+**A**: The sample data only appears before first modification. After any changes, data is saved to `data/addressbook.json`.
+
+---
+
+**Q**: Why won't my international phone number work?<br>
+**A**: ClientConnect currently only supports Singaporean phone formats starting with 3, 6, 8, or 9 followed by 7 digits. Example: `phone/81234567`
+
+---
+
+**Q**: My app started empty after editing the JSON file. What happened?<br>
+**A**: This means your manual edits made the file invalid. ClientConnect automatically creates a new empty file if it detects corruption. Restore from backup or use `clear` to start fresh.
+
+---
+
+**Q**: How do I edit a client's priority level?<br>
+**A**: Use `edit INDEX priority/LEVEL` where LEVEL is 1-3. Example: `edit 2 priority/3` upgrades client 2 to VIP status.
+
+---
+
+**Q**: Why does my product frequency keep resetting to 0?<br>
+**A**: Frequency is tied to product preference. Update both using `edit INDEX pref/NEW_PRODUCT freq/NEW_FREQUENCY`.
+
+---
+
+**Q**: How do I completely remove a product preference?<br>
+**A**: Use `edit INDEX pref/ freq/0` to clear both product and frequency fields.
+
+---
+
 **Q**: How do I transfer my data to another Computer?<br>
 **A**: Install the app in the other computer and overwrite the empty data file it creates with the file that contains the data of your previous AddressBook home folder.
 
