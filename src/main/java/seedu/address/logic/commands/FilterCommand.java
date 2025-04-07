@@ -22,7 +22,7 @@ public class FilterCommand extends AbstractFilterCommand {
     public static final String MESSAGE_ONLY_ONE_FILTER_ALLOWED = "Filter command takes exactly one "
             + "filter condition of either product preference or priority and the arguments must not be empty! \n"
             + COMMAND_WORD + " pref/PRODUCT or priority/LEVEL\n"
-            + "Example: " + COMMAND_WORD + " pref/shampoo or "  + COMMAND_WORD + " priority/3";
+            + "Example: " + COMMAND_WORD + " pref/shampoo or " + COMMAND_WORD + " priority/3";
 
 
 
