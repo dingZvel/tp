@@ -7,7 +7,9 @@
     "address" : "123, Jurong West Ave 6, #08-111",
     "tags" : [ "friends" ],
     "productPreference" : "shampoo",
-    "frequency" : 0
+    "frequency" : 10,
+    "description" : "Loves shampoo.",
+    "priority" : "VIP"
   }, {
     "name" : "Benson Meier",
     "phone" : "98765432",
@@ -15,7 +17,9 @@
     "address" : "311, Clementi Ave 2, #02-25",
     "tags" : [ "owesMoney", "friends" ],
     "productPreference" : "cherry shampoo",
-    "frequency" : 0
+    "frequency" : 9,
+    "description" : "Loves Cherry Shampoo.",
+    "priority" : "PREMIUM"
   }, {
     "name" : "Carl Kurz",
     "phone" : "95352563",
@@ -23,7 +27,9 @@
     "address" : "wall street",
     "tags" : [ ],
     "productPreference" : "coffee book",
-    "frequency" : 0
+    "frequency" : 4,
+    "description" : "Loves coffee and reading.",
+    "priority" : "STANDARD"
   }, {
     "name" : "Daniel Meier",
     "phone" : "87652533",
@@ -31,23 +37,29 @@
     "address" : "10th street",
     "tags" : [ "friends" ],
     "productPreference" : "recipe book",
-    "frequency" : 0
+    "frequency" : 2,
+    "description" : "Loves cooking.",
+    "priority" : "VIP"
   }, {
     "name" : "Elle Meyer",
-    "phone" : "89482224",
+    "phone" : "91482224",
     "email" : "werner@example.com",
     "address" : "michegan ave",
     "tags" : [ ],
     "productPreference" : "tea cup",
-    "frequency" : 0
+    "frequency" : 5,
+    "description" : "Loves tea.",
+    "priority" : "PREMIUM"
   }, {
     "name" : "Fiona Kunz",
-    "phone" : "69482427",
+    "phone" : "91482427",
     "email" : "lydia@example.com",
     "address" : "little tokyo",
     "tags" : [ ],
     "productPreference" : "coffee cup",
-    "frequency" : 0
+    "frequency" : 6,
+    "description" : "Loves coffee.",
+    "priority" : "STANDARD"
   }, {
     "name" : "George Best",
     "phone" : "91482442",
@@ -55,6 +67,8 @@
     "address" : "4th street",
     "tags" : [ ],
     "productPreference" : "tea bag",
-    "frequency" : 0
+    "frequency" : 3,
+    "description" : "Loves tea.",
+    "priority" : "STANDARD"
   } ]
 }
