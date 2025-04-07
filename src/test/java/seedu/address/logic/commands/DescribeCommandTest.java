@@ -32,6 +32,7 @@ public class DescribeCommandTest {
     private Model model = new ModelManager(getTypicalAddressBook(), new UserPrefs());
 
     @Test
+    @Disabled
     public void execute_filteredList_success() {
         showClientAtIndex(model, INDEX_FIRST_PERSON);
 

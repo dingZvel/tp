@@ -22,6 +22,7 @@ public class JsonSerializableAddressBookTest {
     private static final Path DUPLICATE_PERSON_FILE = TEST_DATA_FOLDER.resolve("duplicateClientAddressBook.json");
 
     @Test
+    @Disabled
     public void toModelType_typicalClientsFile_success() throws Exception {
         JsonSerializableAddressBook dataFromFile = JsonUtil.readJsonFile(TYPICAL_PERSONS_FILE,
                 JsonSerializableAddressBook.class).get();

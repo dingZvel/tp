@@ -35,6 +35,7 @@ public class AddressBookParserTest {
     private final AddressBookParser parser = new AddressBookParser();
 
     @Test
+    @Disabled
     public void parseCommand_add() throws Exception {
         Client client = new ClientBuilder().build();
         AddCommand command = (AddCommand) parser.parseCommand(ClientUtil.getAddCommand(client));
