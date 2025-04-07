@@ -6,7 +6,7 @@
 
 # ClientConnect User Guide
 
-ClientConnect is a **desktop app for providing fast access to clients’ addresses and preferences** to help salespeople in making sales decisions and building rapports with clients, which can potentially increase their sales revenue. It is also optimized for use via a  Line Interface** (CLI) while still having the benefits of a Graphical User Interface (GUI).
+ClientConnect is a **desktop app for providing fast access to clients’ addresses and preferences** to help salespeople in making sales decisions and building rapports with clients, which can potentially increase their sales revenue. It is also optimized for use via a  **Command Line Interface** (CLI) while still having the benefits of a Graphical User Interface (GUI).
 
 
 <!-- * Table of Contents -->
@@ -29,7 +29,7 @@ ClientConnect is a **desktop app for providing fast access to clients’ address
    ```
    where `PATH\TO\FOLDER\WITH\JAR\FILE` is the file path of that folder.<br>
    _(Note that by convention you should use `\` on Windows and `/` on Linux or Mac.)<br>_
-   Then use the `java -jar addressbook.jar` command to run the application.<br>
+   Then use the `java -jar clientconnect.jar` command to run the application.<br>
    ```bash
    java -jar ./clientconnect.jar
    ```
@@ -56,12 +56,52 @@ ClientConnect is a **desktop app for providing fast access to clients’ address
    * `exit` : Exits the app.
 
    * `find friends` : Finds all contacts that has the word `friends` in either of their names, tags, or product preferences.
+   
+   * `filter priority/2` : Filters all clients that has the PREMIUM priority level
 
    * `rank name` : Ranks the contacts based on the clients' names.
 
 1. Refer to the [Features](#features) below for details of each command.
 
 --------------------------------------------------------------------------------------------------------------------
+## Client's Details
+
+Before we get started with all the wonderful features, let's get a hang of what ClientConnect can help you manage. Our ClientConnect requires 4 **required** identifier fields which are **name**, **phone**, **email** and **address** while having the flexibility of having other **optional** fields: **tags**, **product preference** and its **purchase frequency**, **priority level** and **description**. <br>
+
+***REQUIRED:***
+* **name**: Only case-sensitive alphabets (a-z) and one space between each word. Note that each first letter of your name will be automatically converted into upper-case. Length is limited to 40 characters.
+* **phone**: Only valid if they
+  - Are 8 digits.
+  - Start with 3, 6, 8, or 9.
+  - Do not have 9 as their first and second digits.
+  - Example: `91203625`
+  
+  <box type="definition" seamless>
+  
+  We define phone numbers this way to ensure data consistency and validation simplicity, the app currently restricts input to ***local Singaporean phone numbers only***. We are working on expanding support for international formats in future versions.
+
+  </box>
+  
+* **email**: Allows any type of email as long as:
+  - The local-part contains only alphanumeric characters and these special characters, excluding the parentheses (+_.-).
+  - Followed by a '@'.
+  - Ends with a domain name that contains at least one dot (.), where there is at least one character and after the dot.
+* **address**: Accepts any string of alphanumeric characters and any special symbols.
+
+***OPTIONAL:***
+* **tags**: each tag should be only one word that only contains alphanumeric characters (i.e. should not contain any white space or special symbols).
+* **product preference**: Accepts any alphanumeric and special characters with spaces. Should usually come with its own **purchase frequency**. When **purchase frequency** is omitted, it is default to 0.
+* **purchase frequency**: Accepts any non-negative integer value that is smaller than 2,147,483,648. We believe that this number should be adequate to support your business. Is not allowed to stand alone without **product preference**.
+* **priority level**: Accepts only one of the 3 values:  1, 2 or 3 where ***3 - VIP, 2 - PREMIUM, 1 - STANDARD***.
+* **description**: Accepts description of any length which can include any English characters and symbols.
+
+<box type="important" seamless>
+
+* We explicitly allow duplicated **phone** and **email** between multiple users since we believe that clients can share the same company's phone and email.
+* In the rare occasions, only clients who have the exact same **name**, **phone** and **email** are regarded as duplicated and are not allowed in ClientConnect.
+* To protect our valued users from accidentally deleting the crucial **product preference** of their clients with no way of recovering it, we intentionally disable the ability to delete a **product preference**. However, we provide a way to edit it instead. We are sure that the most purchased product of your client can only change from one product to another, and should not disappear.
+
+</box>
 
 ## Features
 
@@ -73,7 +113,7 @@ ClientConnect is a **desktop app for providing fast access to clients’ address
   e.g. in `add name/NAME`, `NAME` is a parameter which can be used as `add name/John Doe`.
 
 * Items in square brackets are optional.<br>
-  e.g `name/NAME [tag/TAG]` can be used as `name/John Doe tag/friend` or as `name/John Doe`.
+  e.g. `name/NAME [tag/TAG]` can be used as `name/John Doe tag/friend` or as `name/John Doe`.
 
 * Items with `…`​ after them can be used multiple times including zero times.<br>
   e.g. `[tag/TAG]…​` can be used as ` ` (i.e. 0 times), `tag/friend`, `tag/friend tag/family` etc.
@@ -105,12 +145,12 @@ help
 Let's get started with adding your very first client! To do so, all you have to type is the following command:
 
 ```
-add name/NAME phone/PHONE_NUMBER email/EMAIL address/ADDRESS [tag/TAG] [pref/PRODUCT_PREFERENCE] [freq/PRODUCT_FREQEUNCY] [priority/PRIORITY_LEVEL]
+add name/NAME phone/PHONE_NUMBER email/EMAIL address/ADDRESS [tag/TAG]… [pref/PRODUCT_PREFERENCE] [freq/PRODUCT_FREQUENCY] [priority/PRIORITY_LEVEL]
 ```
-
+The following provides rules applied to details of a client for your convenience. However, for more comprehensive version, please refer to [Client's Details](#clients-details).
 <box type="tip" seamless>
 
-Remember that only attributes in ***square brackets (i.e. []) are OPTIONAL***!
+Remember that only attributes in ***square brackets (i.e. []) are OPTIONAL***! This means a client can only be added if their **name**, **phone**, **email** and **address** are all available.
 
 </box>
 
@@ -129,7 +169,7 @@ Remember that only attributes in ***square brackets (i.e. []) are OPTIONAL***!
   We define phone numbers this way to ensure data consistency and validation simplicity, the app currently restricts input to ***local Singaporean phone numbers only***. We are working on expanding support for international formats in future versions.
 
   </box>
-- Name: Only case-sensitive alphabets (a-z) and one space between each word. Note that each first letter of your name will be converted into upper-case. The length of the name should keep smaller than 40 characters.
+- Name: Only case-sensitive alphabets (a-z) and one space between each word. Note that each first letter of your name will be automatically converted into upper-case. The length of the name should keep smaller than 40 characters.
 
 - Address: Any input is ok (if only alphabet and number, then user can not input “#”)  
 </box>
@@ -146,7 +186,6 @@ You will not be able to add clients if there is already a client with the same:
 - Name
 - Phone number
 - Email
-- Address
 
 </box>
 
@@ -185,13 +224,15 @@ Here's how it works:
 
     </box>
   
-* **Update Your Info:** Add one or more optional fields to update specific details. At least one field must be provided.
+* **Update Your Info:** Add one or more optional fields to update specific details. At least **one** field **must** be provided.
 * **Automatic Replacement:** Each field you specify will replace the existing value. For tags, the old ones are completely removed—unless you leave them out.
     <box type="info" seamless>
     Remember that first letters of your client's name will be capitalized!
     </box>
 * **Clear Tags:** To remove all tags, simply type `tag/` without any tags following it.
 * **Product Preferences:** When updating product preferences, include both `pref/` and `freq/` together. 
+* **Priority:** When priority is omitted, the priority level of client is deleted.
+
 If you only provide `pref/`, the frequency defaults to 0.
 
     <box type="tip" seamless>
@@ -244,7 +285,7 @@ Examples:
 
 ### Locating clients: `find`
 
-You can find clients whose names contain any of the given keywords.<br>
+"I have heard these words somewhere". Don't remember where exactly you found those "familiar" words? Don't worry, the `find` command is there to help you. You can find clients whose **names** or **tags** or **product preferences** contain any of the given keywords.<br>
 You'll have access to certain clients who are tagged specifically or had purchased a certain product from you.<br>
 
 You may use the following format for searching:<br>
@@ -278,7 +319,7 @@ Examples:
 
 ### Deleting a client : `delete`
 
-You can remove a client from your address book using the **delete** command.<br>
+You can remove a client using the `delete` command.<br>
 To do so, type:<br>
 
 ```
@@ -327,7 +368,7 @@ Examples:
 
 ### Filtering clients : `filter`
 
-Need to narrow down your client list based on specific criteria? The `filter` command allows you to refine the currently displayed list by either Priority Level or Product Preference.
+Now that you know exactly what and where to search for, the `filter` command is there for you. Different from the `find` command, `filter` command only allows you to search for keywords when you know exactly what the detail category is. You can filter by either **Priority Level** or **Product Preference**.
 
 **Format:**
 
@@ -342,23 +383,17 @@ Need to narrow down your client list based on specific criteria? The `filter` co
 
 **How it works:**
 
-* The command filters the list of clients currently shown on the screen.
+* The command filters the list of all clients.
 * **Priority Level:** Replace `PRIORITY_LEVEL` with `1`, `2`, or `3`. Only clients matching the specified priority level will be shown.
-* **Product Preference:** Replace `PRODUCT_PREFERENCE` with the name of the product preference you want to filter by. The search is case-insensitive.
+* **Product Preference:** Replace `PRODUCT_PREFERENCE` with the name of the product preference you want to filter by. The search is case-insensitive and works similarly to how the `find` command works.
 * **Important Constraints:**
     * You can only use **one** filter type (`priority/` or `pref/`) per command.
     * The value provided for the filter (`PRIORITY_LEVEL` or `PRODUCT_PREFERENCE`) **cannot be empty**.
 
-**Examples:**
+Examples:
 
-* `filter priority/1` : Shows only the clients from the current list who have a priority level of 1.
-* `filter pref/shampoo` : Shows only the clients from the current list who have "shampoo" in their product preference.
-
-**(Example Scenario)**
-
-1.  You run `list` to see all clients.
-2.  You then run `filter priority/2` to see only the clients with priority level 2.
-3.  If you then run `filter pref/Conditioner`, it will filter the list *currently showing* (only priority 2 clients) to find those who also prefer "Conditioner". If you wanted to see *all* clients preferring "Conditioner", you would run `list` again before `filter pref/Conditioner`.
+* `filter priority/3` gives you a list of all **VIP** clients: <br>![results for `filter priority/3`](images/FilterCommand_Priority3.png) <br> <br>
+* `filter pref/coffee` gives you a list of all clients that have coffee in their product preference ![result](images/FilterCommand_Pref.png)
 
 ### Ranking clients : `rank`
 
@@ -375,7 +410,7 @@ rank KEYWORD
 Take note that the `KEYWORD` must be one of the defined keywords.<br>
 Some examples of `KEYWORD`:
   * `total` to rank by the clients' total purchase in descending order.
-  * `name` to rank by the clients' names in lexicographic order (i.e. ascending order alphabetically and numerically).
+  * `name` to rank by the clients' names in alphabetical order (i.e. ascending order alphabetically).
 
 </box>
 
@@ -387,8 +422,8 @@ Examples:
 * `list` (automatically ranks by name) followed by `rank total` ranks all clients by their total purchase.<br>
   ![result for 'list' then 'rank total'](images/listThenRankTotalResult.png)
 
-* `find shampoo` followed by `rank name` ranks all clients that are found by the `find` command by their names in lexicographical order.<br>
-  ![result for 'find shampoo' then 'rank name'](images/filterShampooThenRankName.png)
+* `filter pref/shampoo` followed by `rank name` ranks all clients that are found by the `filter` command by their names in alphabetical order.<br>
+  ![result for 'filter pref/shampoo' then 'rank name'](images/filterShampooThenRankName.png)
 
 
 ### Clearing all entries : `clear`
@@ -414,7 +449,7 @@ You can move on to your day feeling prepared.
 
 ### Saving the data
 
-AddressBook data are saved in the hard disk automatically after any command that changes the data. There is no need to save manually.
+ClientConnect's data are saved in the hard disk automatically after any command that changes the data. There is no need to save manually.
 
 ### Editing the data file
 
@@ -460,11 +495,11 @@ _Stay tuned!_
 
 Action     | Format, Examples
 -----------|----------------------------------------------------------------------------------------------------------------------------------------------------------------------
-**Add**    | `add name/NAME phone/PHONE_NUMBER email/EMAIL address/ADDRESS [tag/TAG] [pref/PRODUCT_PREFERENCE] [freq/PRODUCT_FREQUENCY]…​` <br> e.g., `add name/James Ho phone/93224444 email/jamesho@example.com address/123, Clementi Rd, 1234665 tag/friend tag/colleague pref/Shampoo freq/10`
+**Add**    | `add name/NAME phone/PHONE_NUMBER email/EMAIL address/ADDRESS [tag/TAG]…​ [pref/PRODUCT_PREFERENCE] [freq/PRODUCT_FREQUENCY] [priority/PRIORITY_LEVEL]` <br> e.g., `add name/James Ho phone/93224444 email/jamesho@example.com address/123, Clementi Rd, 1234665 tag/friend tag/colleague pref/Shampoo freq/10`
 **Clear**  | `clear`
 **Delete** | `delete INDEX`<br> e.g., `delete 3`
-**Edit**   | `edit INDEX [name/NAME] [phone/PHONE_NUMBER] [email/EMAIL] [address/ADDRESS] [tag/TAG] [pref/PRODUCT_PREFERENCE] [freq/PRODUCT_FREQUENCY]…​`<br> e.g.,`edit 2 name/James Lee email/jameslee@example.com`
-**Describe** | `desc 1 This is Alex :)` `desc 2`
+**Edit**   | `edit INDEX [name/NAME] [phone/PHONE_NUMBER] [email/EMAIL] [address/ADDRESS] [tag/TAG]… [pref/PRODUCT_PREFERENCE] [freq/PRODUCT_FREQUENCY] [priority/PRIORITY_LEVEL]​`<br> e.g.,`edit 2 name/James Lee email/jameslee@example.com`
+**Describe** | `desc INDEX DESCRIPTION`<br> e.g., `desc 1 This is Alex :)`, `desc 2`
 **Find**   | `find KEYWORD [MORE_KEYWORDS]`<br> e.g., `find James Jake`, `find friends`, `find shampoo`
 **Filter** | `filter priority/PRIORITY_LEVEL` or `filter pref/PRODUCT_PREFERENCE` <br> e.g., `filter priority/2`, `filter pref/shampoo`
 **List**   | `list`
