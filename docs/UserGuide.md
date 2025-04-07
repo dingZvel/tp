@@ -29,7 +29,8 @@ ClientConnect is a **desktop app for providing fast access to clients’ address
    ```
    where `PATH\TO\FOLDER\WITH\JAR\FILE` is the file path of that folder.<br>
    _(Note that by convention you should use `\` on Windows and `/` on Linux or Mac.)<br>_
-   Then use the `java -jar clientconnect.jar` command to run the application.<br>
+   Then use the `java -jar JAR_FILE_NAME.jar` command to run the application.<br>
+   If your `.jar` file is named `clientconnect`, then your command would be:<br>
    ```bash
    java -jar ./clientconnect.jar
    ```
