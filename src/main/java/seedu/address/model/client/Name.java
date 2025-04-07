@@ -10,7 +10,7 @@ import static seedu.address.commons.util.AppUtil.checkArgument;
 public class Name {
 
     public static final String MESSAGE_CONSTRAINTS =
-            "Please use only case-sensitive words and one space "
+            "Please use only case-sensitive words (a-z) and one space "
                     + "between each word with length below 40 characters, e.g. “John Doe”";
 
     /*
