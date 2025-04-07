@@ -37,7 +37,6 @@ public class EditCommandTest {
     private Model model = new ModelManager(getTypicalAddressBook(), new UserPrefs());
 
     @Test
-    @Disabled
     public void execute_allFieldsSpecifiedUnfilteredList_success() {
         Client editedClient = new ClientBuilder().build();
         EditClientDescriptor descriptor = new EditClientDescriptorBuilder(editedClient).build();
@@ -52,7 +51,6 @@ public class EditCommandTest {
     }
 
     @Test
-    @Disabled
     //TODO: Fix this test
     public void execute_someFieldsSpecifiedUnfilteredList_success() {
         Index indexLastClient = Index.fromOneBased(model.getSortedFilteredClientList().size());
@@ -75,7 +73,6 @@ public class EditCommandTest {
     }
 
     @Test
-    @Disabled
     public void execute_noFieldSpecifiedUnfilteredList_success() {
         EditCommand editCommand = new EditCommand(INDEX_FIRST_PERSON, new EditClientDescriptor());
         Client editedClient = model.getSortedFilteredClientList().get(INDEX_FIRST_PERSON.getZeroBased());
@@ -88,7 +85,6 @@ public class EditCommandTest {
     }
 
     @Test
-    @Disabled
     //TODO: Fix this test
     public void execute_filteredList_success() {
         showClientAtIndex(model, INDEX_FIRST_PERSON);

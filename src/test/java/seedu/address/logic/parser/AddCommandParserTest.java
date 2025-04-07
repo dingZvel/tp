@@ -50,7 +50,6 @@ public class AddCommandParserTest {
     private AddCommandParser parser = new AddCommandParser();
 
     @Test
-    @Disabled
     public void parse_allFieldsPresent_success() {
         Client expectedClient = new ClientBuilder(BOB).withTags(VALID_TAG_FRIEND).build();
 
@@ -132,7 +131,6 @@ public class AddCommandParserTest {
     }
 
     @Test
-    @Disabled
     public void parse_optionalFieldsMissing_success() {
         // zero tags
         Client expectedClient = new ClientBuilder(AMY).withTags().build();

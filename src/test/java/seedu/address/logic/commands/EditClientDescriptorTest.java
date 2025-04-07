@@ -59,7 +59,6 @@ public class EditClientDescriptorTest {
     }
 
     @Test
-    @Disabled
     public void toStringMethod() {
         EditClientDescriptor editClientDescriptor = new EditClientDescriptor();
         String expected = EditClientDescriptor.class.getCanonicalName() + "{name="
