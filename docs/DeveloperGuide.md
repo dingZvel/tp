@@ -13,7 +13,7 @@
 
 ## **Acknowledgements**
 
-ClientConnect is an AddressBook which is built upon [**AddressBook3**](https://github.com/AY2425S2-CS2103T-W13-2/tp) <br>
+ClientConnect is an AddressBook which is built upon [**AddressBook3**](https://github.com/se-edu/addressbook-level3/) <br>
 The app utilizes the following third-party libraries:
 * **JavaFX**: ClientConnect's main GUI library
 * **JUnit**: Tests functional code
@@ -535,4 +535,4 @@ _Team size: 5_
 
 7. **Flexible Client Creation**: The app currently requires all fields for a client to be added, which can be inconvenient or irrelevant at times. We plan to modify the client addition process to enhance user convenience. Instead of requiring all fields (name, phone, email, address), we require only one of these primary contact details to create a new client entry.
 
-
+8. **
