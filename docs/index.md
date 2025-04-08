@@ -10,7 +10,7 @@
 
 ![Ui](images/Ui_v3.png)
 
-**ClientConnect** is a **desktop app for providing fast access to clients’ addresses and preferences** to help salespeople in making sales decisions and building rapports with clients, which can potentially increase their sales revenue. It is also optimized for use via a  Line Interface** (CLI) while still having the benefits of a Graphical User Interface (GUI).
+**ClientConnect** is a **desktop app for providing fast access to clients’ addresses and preferences** to help salespeople in making sales decisions and building rapports with clients, which can potentially increase their sales revenue. It is also optimized for use via a **Command Line Interface** (CLI) while still having the benefits of a Graphical User Interface (GUI).
 
 * If you are interested in using ClientConnect, head over to the [_Quick Start_ section of the **User Guide**](UserGuide.html#quick-start).
 * If you are interested about developing ClientConnect, the [**Developer Guide**](DeveloperGuide.html) is a good place to start.

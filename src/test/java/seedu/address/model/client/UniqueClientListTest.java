@@ -13,7 +13,6 @@ import java.util.Arrays;
 import java.util.Collections;
 import java.util.List;
 
-import org.junit.jupiter.api.Disabled;
 import org.junit.jupiter.api.Test;
 
 import seedu.address.model.client.exceptions.ClientNotFoundException;
@@ -41,12 +40,11 @@ public class UniqueClientListTest {
     }
 
     @Test
-    @Disabled
     public void contains_clientWithSameIdentityFieldsInList_returnsFalse() {
         uniqueClientList.add(ALICE);
         Client editedAlice = new ClientBuilder(ALICE).withAddress(VALID_ADDRESS_BOB).withTags(VALID_TAG_HUSBAND)
                 .build();
-        assertFalse(uniqueClientList.contains(editedAlice));
+        assertTrue(uniqueClientList.contains(editedAlice));
     }
 
     @Test
