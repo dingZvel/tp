@@ -39,7 +39,7 @@ public class CommandTestUtil {
     public static final String VALID_TAG_HUSBAND = "husband";
     public static final String VALID_TAG_FRIEND = "friend";
     public static final String VALID_DESCRIPTION = "This customer likes shinny things!";
-  
+
     public static final int VALID_PRIORITY_VIP = 3;
     public static final int VALID_PRIORITY_PREMIUM = 2;
     public static final int VALID_PRIORITY_STANDARD = 1;
