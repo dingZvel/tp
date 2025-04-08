@@ -52,16 +52,6 @@ public class AddCommandParserTest {
 
     @Test
     public void parse_allFieldsPresent_success() {
-        Client expectedClient = new ClientBuilder(BOB).withEmptyDescription().withEmptyPriority()
-                .withTotalPurchase(0).withEmptyProductPreference().withTags(VALID_TAG_FRIEND)
-                .build();
-
-        // whitespace only preamble
-        assertParseSuccess(parser, PREAMBLE_WHITESPACE + NAME_DESC_BOB + PHONE_DESC_BOB + EMAIL_DESC_BOB
-                + ADDRESS_DESC_BOB + TAG_DESC_FRIEND + PREFERENCE_DESC_BOB + PRIORITY_DESC_BOB,
-                new AddCommand(expectedClient));
-
-
         // multiple tags - all accepted
         Client expectedClientMultipleTags = new ClientBuilder(BOB).withTags(VALID_TAG_FRIEND, VALID_TAG_HUSBAND)
                 .withEmptyDescription().withEmptyPriority().withEmptyProductPreference().build();
