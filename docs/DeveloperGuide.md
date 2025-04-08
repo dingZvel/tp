@@ -62,7 +62,7 @@ The *Sequence Diagram* below shows how the components interact with each other f
 Each of the four main components (also shown in the diagram above),
 
 * defines its *API* in an `interface` with the same name as the Component.
-* implements its functionality using a concrete `{Component Name}Manager` class (which follows the corresponding API `interface` mentioned in the previous point.
+* implements its functionality using a concrete `{Component Name}Manager` class (which follows the corresponding API `interface` mentioned in the previous point).
 
 For example, the `Logic` component defines its API in the `Logic.java` interface and implements its functionality using the `LogicManager.java` class which follows the `Logic` interface. Other components interact with a given component through its interface rather than the concrete class (reason: to prevent outside component's being coupled to the implementation of a component), as illustrated in the (partial) class diagram below.
 
@@ -118,8 +118,7 @@ The `Logic` component is designed with extensibility in mind. To support a new c
 - Create a matching parser (e.g., `SortCommandParser`) that implements the `Parser<T>` interface
 - Add a corresponding `case` to the `AddressBookParser#parseCommand` method
 
-This modular design makes it straightforward to extend the system while maintaining clarity and separation of concerns.
-) that are used for parsing a user command:
+This modular design makes it straightforward to extend the system while maintaining clarity and separation of concerns that are used for parsing a user command:
 
 <puml src="diagrams/ParserClasses.puml" width="600"/>
 
@@ -144,7 +143,7 @@ The `Model` component,
 
 **Note:** An alternative (arguably, a more OOP) model is given below. It has a `Tag` list in the `AddressBook`, which `Client` references. This allows `AddressBook` to only require one `Tag` object per unique tag, instead of each `Client` needing their own `Tag` objects.<br>
 
-<puml src="diagrams/BetterModelClassDiagram.puml" width="500" />
+<puml src="diagrams/BetterModelClassDiagram.puml" width="475" />
 
 </box>
 
@@ -302,7 +301,7 @@ Priorities: High (must have) - `* * *`, Medium (nice to have) - `* *`, Low (unli
 4.  ClientConnect validates the command. 
 5.  ClientConnect retrieves the details of the client at the specified index. 
 6.  ClientConnect deletes the client's details from the address book. 
-7.  ClientConnect displays a success message:”Deleted: <Info of the deleted client>”
+7.  ClientConnect displays a success message: “Deleted: &lt;Info of the deleted client&gt;”
 
 
     Use case ends.
