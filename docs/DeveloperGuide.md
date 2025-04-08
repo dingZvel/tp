@@ -529,7 +529,7 @@ _Team size: 5_
 
 4. **Rank clients by product frequency of a certain product preference**: We want our `rank` command to be more useful, adding its ability to rank in many ways, including rank clients based on the frequency of a certain product.
 
-5.  **Search by Contact Information**: Our app currently has no way of finding a client by his contact details. We plan to implement a feature allowing users to directly search for a client using their phone number or email address for quicker lookup.
+5.  **Search by Contact Information**: Our app currently has no way of finding a client by his contact details. We plan to improve our find feature to allow users to directly search for a client using their phone number or email address for quicker lookup.
 
 6.  **Implement Robust Contact Information Verification**: Our app currently only imposes basic rules on contact details like phones and emails. We plan to incorporate third-party APIs to send verification codes to phone numbers and email addresses upon entry, confirming their validity and reachability.
 
