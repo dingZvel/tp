@@ -11,7 +11,6 @@ import java.util.Arrays;
 import java.util.List;
 import java.util.stream.Collectors;
 
-import org.junit.jupiter.api.Disabled;
 import org.junit.jupiter.api.Test;
 
 import seedu.address.logic.commands.AddCommand;
@@ -35,7 +34,6 @@ public class AddressBookParserTest {
     private final AddressBookParser parser = new AddressBookParser();
 
     @Test
-    @Disabled
     public void parseCommand_add() throws Exception {
         Client client = new ClientBuilder().withEmptyDescription().build();
         AddCommand command = (AddCommand) parser.parseCommand(ClientUtil.getAddCommand(client));
@@ -57,7 +55,7 @@ public class AddressBookParserTest {
 
     @Test
     public void parseCommand_edit() throws Exception {
-        Client client = new ClientBuilder().build();
+        Client client = new ClientBuilder().withEmptyDescription().build();
         EditClientDescriptor descriptor = new EditClientDescriptorBuilder(client).build();
         EditCommand command = (EditCommand) parser.parseCommand(EditCommand.COMMAND_WORD + " "
                 + INDEX_FIRST_PERSON.getOneBased() + " " + ClientUtil.getEditClientDescriptorDetails(descriptor));

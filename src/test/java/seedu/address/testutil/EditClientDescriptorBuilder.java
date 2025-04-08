@@ -41,6 +41,9 @@ public class EditClientDescriptorBuilder {
         descriptor.setEmail(client.getEmail());
         descriptor.setAddress(client.getAddress());
         descriptor.setTags(client.getTags());
+        descriptor.setPriority(client.getPriority());
+        descriptor.setDescription(client.getDescription());
+        descriptor.setProductPreference(client.getProductPreference());
     }
 
     /**
