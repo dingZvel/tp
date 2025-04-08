@@ -43,6 +43,7 @@ public class ClientUtil {
         client.getTags().stream().forEach(
             s -> sb.append(PREFIX_TAG + s.tagName + " ")
         );
+
         sb.append(PREFIX_PREFERENCE + client.getProductPreference()
                 .map(ProductPreference::toString).orElse("") + " ");
         sb.append(PREFIX_FREQUENCY + client.getProductPreference()

@@ -16,9 +16,9 @@ public class Email {
             + "the parentheses, (" + SPECIAL_CHARACTERS + "). The local-part may not start or end with any special "
             + "characters.\n"
             + "2. This is followed by a '@' and then a domain name. The domain name is made up of domain labels "
-            + "separated by periods.\n"
+            + "separated by dots. At least 1 dot is needed.\n"
             + "The domain name must:\n"
-            + "    - end with a domain label at least 2 characters long\n"
+            + "    - have 1 character before and after every dot\n"
             + "    - have each domain label start and end with alphanumeric characters\n"
             + "    - have each domain label consist of alphanumeric characters, separated only by hyphens, if any.";
     // alphanumeric and special characters
