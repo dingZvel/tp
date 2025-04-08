@@ -424,7 +424,7 @@ Priorities: High (must have) - `* * *`, Medium (nice to have) - `* *`, Low (unli
 
 * **Client**: The customers who the salesperson (also user of this application) is selling products to.
 * **Command**: A one-line instruction typed into the application by user.
-* **Contact detail**: Including contact names, phone numbers, emails, adresses and optionally tags, etc.
+* **Contact detail**: Including contact names, phone numbers, emails, addresses and optionally tags, etc.
 * **CSV file**: Comma-separated values, a plain text file format that stores data in a table-like structure. Can be opened using Microsoft Excel or be imported to other supported applications.
 * **Main features**: The main features of this application, including _list_, _add_, _delete_, etc.
 * **Mainstream OS**: Windows, Linux, Unix, MacOS
@@ -528,7 +528,7 @@ _Team size: 5_
 
 3. **New commands to add tags cumulatively**: For the same reason, now we can only edit tags through `edit` command, and if we want to add a new tag to a client without touching existing tags, we will also have to type out all the existing tags in the command, which is very inconvenient and unpractical. We can add new command `AddTag` to add new tags cumulatively to a client, and another new command `DeleteTag` to delete a certain existing tag for a client.
 
-4. **Rank clients by product frequency of a certain product preference**: We want our `rank` command to be more useful, adding it's ability to rank in many ways, including rank clients based on the frequency of a certain product.
+4. **Rank clients by product frequency of a certain product preference**: We want our `rank` command to be more useful, adding its ability to rank in many ways, including rank clients based on the frequency of a certain product.
 
 5.  **Search by Contact Information**: Implement a feature allowing users to directly search for a client using their phone number or email address for quicker lookup.
 
