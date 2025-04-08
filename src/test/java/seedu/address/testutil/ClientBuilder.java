@@ -25,10 +25,10 @@ public class ClientBuilder {
     public static final String DEFAULT_PHONE = "85355255";
     public static final String DEFAULT_EMAIL = "amy@gmail.com";
     public static final String DEFAULT_ADDRESS = "123, Jurong West Ave 6, #08-111";
-    public static final String DEFAULT_PRODUCT_PREFERENCE = "Shampoo";
+    public static final String DEFAULT_PRODUCT_PREFERENCE = "shampoo";
     public static final int DEFAULT_TOTAL_PURCHASE = 0;
-    public static final String DEFAULT_DESCRIPTION = "Likes to buy shampoo";
-    public static final Priority DEFAULT_PRIORITY = Priority.STANDARD;
+    public static final String DEFAULT_DESCRIPTION = "Loves shampoo.";
+    public static final Priority DEFAULT_PRIORITY = Priority.VIP;
 
     private Name name;
     private Phone phone;

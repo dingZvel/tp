@@ -52,8 +52,6 @@ public class EditCommandTest {
     }
 
     @Test
-    @Disabled
-    //TODO: Fix this test
     public void execute_someFieldsSpecifiedUnfilteredList_success() {
         Index indexLastClient = Index.fromOneBased(model.getSortedFilteredClientList().size());
         Client lastClient = model.getSortedFilteredClientList().get(indexLastClient.getZeroBased());
@@ -75,7 +73,6 @@ public class EditCommandTest {
     }
 
     @Test
-    @Disabled
     public void execute_noFieldSpecifiedUnfilteredList_success() {
         EditCommand editCommand = new EditCommand(INDEX_FIRST_PERSON, new EditClientDescriptor());
         Client editedClient = model.getSortedFilteredClientList().get(INDEX_FIRST_PERSON.getZeroBased());
@@ -88,8 +85,6 @@ public class EditCommandTest {
     }
 
     @Test
-    @Disabled
-    //TODO: Fix this test
     public void execute_filteredList_success() {
         showClientAtIndex(model, INDEX_FIRST_PERSON);
 
