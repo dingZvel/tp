@@ -430,7 +430,7 @@ Priorities: High (must have) - `* * *`, Medium (nice to have) - `* *`, Low (unli
 * **Mainstream OS**: Windows, Linux, Unix, MacOS
 * **Salesperson**: Anyone who is selling things and has the need to note down clients' information.
 * **Private contact detail**: A contact detail that is not meant to be shared with others
-* **Product Preference**: The most purchased products of the client of interest.
+* **Product Preference**: The most purchased product of the client of interest.
 
 --------------------------------------------------------------------------------------------------------------------
 
