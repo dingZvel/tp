@@ -535,4 +535,3 @@ _Team size: 5_
 
 7. **Flexible Client Creation**: The app currently requires all fields for a client to be added, which can be inconvenient or irrelevant at times. We plan to modify the client addition process to enhance user convenience. Instead of requiring all fields (name, phone, email, address), we require only one of these primary contact details to create a new client entry.
 
-8. **
